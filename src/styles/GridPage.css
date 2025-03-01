@@ -1,0 +1,59 @@
+/* GridPage.css */
+.grid-container {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.avatar {
+  width: 40px; /* ✅ Adjusted size */
+  height: 40px; /* ✅ Adjusted size */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    padding: 10px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .details-list {
+    overflow-x: auto;
+  }
+
+  .delete-btn {
+    margin-top: 5px;
+  }
+}
+
+/* 🟢 Fix Action Button Spacing */
+.action-buttons {
+  display: flex;
+  gap: 12px; /* ✅ Increased spacing between View & Delete buttons */
+  justify-content: center;
+}
+
+/* 🟢 Improve Pagination Layout */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* ✅ Moved pagination slightly up */
+}
+
+.pagination-btn {
+  min-width: 80px;
+  padding: 8px 14px;
+  font-size: 14px;
+  text-align: center;
+}

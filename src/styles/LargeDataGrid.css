@@ -1,0 +1,76 @@
+.large-data-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.large-data-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f4f4f4;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 🔹 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  th,
+  td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .avatar {
+    width: 25px;
+    height: 25px;
+  }
+}

@@ -1,0 +1,32 @@
+.pagination-container {
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-btn {
+  background-color: #0078d4;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background-color: #005a9e;
+}
+
+.pagination-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.rtl .pagination-container {
+  direction: rtl;
+}

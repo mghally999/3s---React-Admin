@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background: white;
+}
+
+.rtl .content {
+  direction: rtl;
+  text-align: right;
+}
