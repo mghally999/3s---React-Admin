@@ -8,7 +8,6 @@ const LargeDataGrid = () => {
   const allData = useSelector((state) => state.data.data);
   const [direction, setDirection] = useState("ltr");
   const [visibleData, setVisibleData] = useState([]);
-  const observerRef = useRef(null);
   const containerRef = useRef(null);
   const batchSize = 50;
 

@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  PrimaryButton,
-  DefaultButton,
-  Dialog,
-  DialogFooter,
-  Spinner,
-  Dropdown,
-} from "@fluentui/react";
+import { PrimaryButton, DefaultButton, Dropdown } from "@fluentui/react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/dataSlice";
 import { useTranslation } from "react-i18next";
