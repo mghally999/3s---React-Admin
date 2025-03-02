@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../redux/dataSlice";
 import { TextField, PrimaryButton } from "@fluentui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
+import { userValidationSchema } from "../utils/validation";
 import "../styles/ViewEditPage.css";
 
 const ViewEditPage = () => {
@@ -16,9 +16,8 @@ const ViewEditPage = () => {
   const [direction, setDirection] = useState("ltr");
 
   useEffect(() => {
-    const lang = i18n.language;
-    setDirection(lang === "ar" ? "rtl" : "ltr");
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    setDirection(i18n.language === "ar" ? "rtl" : "ltr");
+    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
   }, [i18n.language]);
 
   const data = useSelector((state) => state.data.data);
@@ -35,13 +34,6 @@ const ViewEditPage = () => {
     );
   }
 
-  const validationSchema = Yup.object({
-    name: Yup.string().required(t("Name is required")),
-    email: Yup.string()
-      .email(t("Invalid email"))
-      .required(t("Email is required")),
-  });
-
   const handleSave = (values) => {
     const updatedData = data.map((d) =>
       d.id === item.id ? { ...d, ...values } : d
@@ -56,30 +48,28 @@ const ViewEditPage = () => {
         <h2>{t("Edit User")}</h2>
         <Formik
           initialValues={{ name: item?.name || "", email: item?.email || "" }}
-          validationSchema={validationSchema}
+          validationSchema={userValidationSchema}
           onSubmit={(values) => handleSave(values)}
         >
           {({ isSubmitting }) => (
             <Form className="edit-form">
-              <div className="form-field">
-                <label htmlFor="name">{t("Full Name")} *</label>
-                <Field as={TextField} name="name" id="name" />
-                <ErrorMessage
-                  name="name"
-                  component="div"
-                  className="error-message"
-                />
-              </div>
+              <Field name="name">
+                {({ field }) => <TextField {...field} label={t("Full Name")} />}
+              </Field>
+              <ErrorMessage
+                name="name"
+                component="div"
+                className="error-message"
+              />
 
-              <div className="form-field">
-                <label htmlFor="email">{t("Email")} *</label>
-                <Field as={TextField} name="email" id="email" />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="error-message"
-                />
-              </div>
+              <Field name="email">
+                {({ field }) => <TextField {...field} label={t("Email")} />}
+              </Field>
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-message"
+              />
 
               <div className="button-group">
                 <PrimaryButton type="submit" disabled={isSubmitting}>

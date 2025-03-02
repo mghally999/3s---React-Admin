@@ -1,7 +1,10 @@
 .pagination-container {
+  display: flex;
   margin-top: 20px;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  gap: 12px;
 }
 
 .pagination-btn {
@@ -9,8 +12,9 @@
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 8px 14px;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .pagination-btn:hover {
@@ -25,8 +29,19 @@
 .pagination-info {
   font-size: 16px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .rtl .pagination-container {
+  flex-direction: row-reverse;
+}
+
+.rtl .pagination-info {
+  direction: rtl;
+}
+
+.rtl .pagination-btn {
   direction: rtl;
 }

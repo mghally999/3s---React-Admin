@@ -1,5 +1,5 @@
 export const mockData = Array.from({ length: 100 }, (_, index) => {
-  const gender = index % 2 === 0 ? "men" : "women"; // Alternate genders
+  const gender = index % 2 === 0 ? "men" : "women";
   return {
     id: index + 1,
     name: `User ${index + 1}`,
@@ -11,6 +11,6 @@ export const mockData = Array.from({ length: 100 }, (_, index) => {
       year: "numeric",
       month: "short",
       day: "numeric",
-    }), // Proper date formatting
+    }),
   };
 });

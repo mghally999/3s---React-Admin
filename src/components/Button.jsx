@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { PrimaryButton, DefaultButton } from "@fluentui/react";
-import { useTranslation } from "react-i18next";
-import "../styles/Button.css"; // External styles
+import "../styles/Button.css";
 
-const Button = ({ text, type = "primary", onClick, disabled = false }) => {
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
-
+const Button = ({
+  text,
+  primary = true,
+  onClick = () => {},
+  disabled = false,
+  className = "",
+}) => {
   return (
-    <div className={`button-container ${isRTL ? "rtl" : ""}`}>
-      {type === "primary" ? (
+    <div className={`button-container ${className}`}>
+      {primary ? (
         <PrimaryButton onClick={onClick} disabled={disabled}>
           {text}
         </PrimaryButton>
@@ -18,7 +20,7 @@ const Button = ({ text, type = "primary", onClick, disabled = false }) => {
         <DefaultButton
           onClick={onClick}
           disabled={disabled}
-          className={`btn-${type}`}
+          className={className}
         >
           {text}
         </DefaultButton>
@@ -29,9 +31,10 @@ const Button = ({ text, type = "primary", onClick, disabled = false }) => {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["primary", "secondary", "danger"]),
+  primary: PropTypes.bool,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Button;

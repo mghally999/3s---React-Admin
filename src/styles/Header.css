@@ -2,18 +2,52 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0078d4;
-  color: white;
   padding: 15px 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #0078d4;
+  color: white;
+  transition: margin-left 0.3sease-in-out, margin-right 0.3sease-in-out;
+  width: 95%;
 }
 
-.app-header h1 {
-  margin: 0;
+.sidebar.open ~ .main-content .app-header {
+  margin-left: 40px;
 }
 
-.rtl {
+.sidebar.closed ~ .main-content .app-header {
+  margin-left: 60px;
+}
+
+.rtl .app-header {
   direction: rtl;
+  text-align: right;
+}
+
+.rtl .sidebar.open ~ .main-content .app-header {
+  margin-left: 0;
+  margin-right: 40px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar.open ~ .main-content .app-header,
+  .sidebar.closed ~ .main-content .app-header {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

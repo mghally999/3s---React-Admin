@@ -1,16 +1,43 @@
 .layout {
   display: flex;
-  min-height: 100vh;
-  background: #f4f4f4;
+  height: 100vh;
+  transition: margin-left 0.3s ease-in-out, margin-right 0.3s ease-in-out;
 }
 
-.content {
-  flex: 1;
-  padding: 20px;
-  background: white;
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease-in-out, margin-right 0.3s ease-in-out;
+  width: 100%;
 }
 
-.rtl .content {
+.sidebar.open ~ .main-content {
+  margin-left: 220px;
+}
+
+.sidebar.closed ~ .main-content {
+  margin-left: 60px;
+}
+
+.rtl .sidebar {
   direction: rtl;
   text-align: right;
+  left: auto;
+  right: 0;
+}
+
+.rtl .main-content {
+  margin-left: 0;
+  margin-right: 220px;
+}
+
+.rtl .sidebar.closed ~ .main-content {
+  margin-right: 60px;
+}
+
+@media (max-width: 768px) {
+  .sidebar.open ~ .main-content {
+    margin-left: 0;
+  }
 }

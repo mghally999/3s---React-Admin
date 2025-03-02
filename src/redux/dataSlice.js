@@ -3,7 +3,7 @@ import { mockData } from "../data/mockData";
 
 const initialState = {
   data: mockData || [],
-  language: localStorage.getItem("language") || "en", // 🔹 Persist language
+  language: localStorage.getItem("language") || "en",
 };
 
 const dataSlice = createSlice({
@@ -20,8 +20,11 @@ const dataSlice = createSlice({
       state.language = action.payload;
       localStorage.setItem("language", action.payload);
     },
+    addUser: (state, action) => {
+      state.data.unshift({ ...action.payload, id: Date.now() });
+    },
   },
 });
 
-export const { setData, deleteRow, setLanguage } = dataSlice.actions;
+export const { setData, deleteRow, setLanguage, addUser } = dataSlice.actions;
 export default dataSlice.reducer;
